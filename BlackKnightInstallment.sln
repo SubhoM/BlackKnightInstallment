@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlackKnightInstallment", "BlackKnightInstallment\BlackKnightInstallment.csproj", "{FE22E312-CF3C-4397-A634-4A53446447B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackKnightTest", "BlackKnightTest\BlackKnightTest.csproj", "{CE075F25-8DA6-4A12-9E91-4CFC4C920ABD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE22E312-CF3C-4397-A634-4A53446447B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE22E312-CF3C-4397-A634-4A53446447B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE22E312-CF3C-4397-A634-4A53446447B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE22E312-CF3C-4397-A634-4A53446447B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE075F25-8DA6-4A12-9E91-4CFC4C920ABD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE075F25-8DA6-4A12-9E91-4CFC4C920ABD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE075F25-8DA6-4A12-9E91-4CFC4C920ABD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE075F25-8DA6-4A12-9E91-4CFC4C920ABD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B386C1A9-C492-4FD3-8821-A47CCC5DD2BB}
+	EndGlobalSection
+EndGlobal

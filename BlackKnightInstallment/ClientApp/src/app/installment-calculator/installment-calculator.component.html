@@ -1,0 +1,64 @@
+
+
+<div class="container">
+
+  <h2>
+    Installment Calculator
+  </h2>
+
+  <section class="col-sm-12">
+
+    <form (ngSubmit)="onSubmit()" name="f" id="f" #f="ngForm">
+
+      <div class="well col-sm-6">
+
+        <div class="col-sm-12">
+          <label for="TotalAmount">Total Amount: </label>
+          <input id="TotalAmount" class="form-control" type="text" ngModel name="TotalAmount" pattern="-?[1-9][0-9]*" required #TotalAmount="ngModel" />
+          <span class="help-block" *ngIf="!TotalAmount.valid && TotalAmount.touched">
+            Please enter a valid number!
+          </span>
+        </div>
+        <div class="col-sm-12 NoOfInstallments" >
+          <label for="NoOfInstallments">Number of Installments: </label>
+          <input id="NoOfInstallments" class="form-control" ngModel name="NoOfInstallments" type="text" pattern="[1-4]" required #NoOfInstallments="ngModel" />
+          <span class="help-block" *ngIf="!NoOfInstallments.valid && NoOfInstallments.touched">
+            Please enter a valid number between 1 and 4!
+          </span>
+        </div>
+        <div class="col-sm-12">
+          <button class="btn btn-md btn-primary" type="submit" [disabled]="!f.valid">Calculate Installment</button>
+        </div>
+      </div>
+
+    </form>
+
+  </section>
+
+  <section class="col-sm-12" [hidden]="!arrInstallmentAmount || arrInstallmentAmount.length==0">
+
+    <h3>
+      Installment Schedule
+    </h3>
+    
+    <div class="col-sm-6" >
+
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Installment</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let amt of arrInstallmentAmount;index as i">
+            <td>{{i+1}}</td>
+            <td>{{amt}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </section>
+
+</div>
