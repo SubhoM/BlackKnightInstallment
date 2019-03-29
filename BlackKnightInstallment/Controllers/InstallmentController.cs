@@ -18,7 +18,7 @@ namespace BlackKnightInstallment.Controllers
         }
 
         [HttpGet("GetInstallmentAmount/{TotalAmount}/{NoOfInstallments}")]
-        public IActionResult GetInstallmentAmount(int TotalAmount, int NoOfInstallments)
+        public IActionResult GetInstallmentAmount(decimal TotalAmount, int NoOfInstallments)
         {
             try
             {
@@ -31,6 +31,14 @@ namespace BlackKnightInstallment.Controllers
                 {
                     return BadRequest("Please enter a valid amount");
                 }
+
+                var strFractionTotalAmount = TotalAmount> 0 ? (TotalAmount % 1.0m).ToString() : null;
+
+                if (strFractionTotalAmount!=null && strFractionTotalAmount.Length > 4)
+                {
+                    return BadRequest("Error, Invalid Input");
+                }
+                 
 
                 var lstInstallment = _installmentService.CalculateInstallment(TotalAmount, NoOfInstallments);
 

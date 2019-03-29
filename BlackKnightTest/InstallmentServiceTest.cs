@@ -31,7 +31,7 @@ namespace BlackKnightTest
             var okResult = _service.CalculateInstallment(TotalAmount, NoOfInstallments);
 
             int resultCnt = 0;
-            using (IEnumerator<int> enumerator = okResult.GetEnumerator())
+            using (IEnumerator<decimal> enumerator = okResult.GetEnumerator())
             {
                 while (enumerator.MoveNext())
                     resultCnt++;
@@ -55,7 +55,7 @@ namespace BlackKnightTest
             var okResult = _service.CalculateInstallment(TotalAmount, NoOfInstallments);
 
             int resultCnt = 0;
-            using (IEnumerator<int> enumerator = okResult.GetEnumerator())
+            using (IEnumerator<decimal> enumerator = okResult.GetEnumerator())
             {
                 while (enumerator.MoveNext())
                     resultCnt++;
@@ -70,41 +70,101 @@ namespace BlackKnightTest
         /// Check Installment Amounts for fraction values
         /// </summary>
         [Fact]
-        public void CheckInstallmentForFraction()
+        public void CheckInstallmentForFractionPennies()
         {
-            int TotalAmount = 700;
+            decimal TotalAmount = 700;
             int NoOfInstallments = 3;
 
             // Act
             var okResult = _service.CalculateInstallment(TotalAmount, NoOfInstallments);
 
-            int result = 0;
-            int fractionCount = 0;
+            decimal result = 0;
+            int fractionPennyCount = 0;
 
-            bool isInt = true ;
+            bool isFractionPennie = false ;
 
-            using (IEnumerator<int> enumerator = okResult.GetEnumerator())
+            using (IEnumerator<decimal> enumerator = okResult.GetEnumerator())
             {
                 while (enumerator.MoveNext()) {
 
-                    int current = enumerator.Current;
+                    decimal current = enumerator.Current;
 
                     result += current;
 
-                    isInt = current % 1 == 0;
+                    isFractionPennie = (current  % 1.0m).ToString().Length > 4;
 
-                    if(isInt == false)
+                    if(isFractionPennie == true)
                     {
-                        fractionCount += 1;
+                        fractionPennyCount += 1;
                     }
 
                  }
             }
 
+            var _expectedResult = new List<decimal>
+            {
+                233.34M,
+                233.33M,
+                233.33M
+            };
+
             // Assert
+            Assert.Equal(_expectedResult, okResult);
             Assert.Equal(TotalAmount, result);
-            Assert.Equal(0, fractionCount);
+            Assert.Equal(0, fractionPennyCount);
         }
+
+
+
+        /// <summary>
+        /// Check Installment Amounts for fraction values Test Case 2 
+        /// </summary>
+        [Fact]
+        public void CheckInstallmentForFractionPenniesTwo()
+        {
+            decimal TotalAmount = 477.53M;
+            int NoOfInstallments = 3;
+
+            // Act
+            var okResult = _service.CalculateInstallment(TotalAmount, NoOfInstallments);
+
+            decimal result = 0;
+            int fractionPennyCount = 0;
+
+            bool isFractionPennie = false;
+
+            using (IEnumerator<decimal> enumerator = okResult.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+
+                    decimal current = enumerator.Current;
+
+                    result += current;
+
+                    isFractionPennie = (current % 1.0m).ToString().Length > 4;
+
+                    if (isFractionPennie == true)
+                    {
+                        fractionPennyCount += 1;
+                    }
+
+                }
+            }
+
+            var _expectedResult = new List<decimal>
+            {
+                159.19M,
+                159.17M,
+                159.17M
+            };
+
+            // Assert
+            Assert.Equal(_expectedResult, okResult);
+            Assert.Equal(TotalAmount, result);
+            Assert.Equal(0, fractionPennyCount);
+        }
+
 
     }
 }

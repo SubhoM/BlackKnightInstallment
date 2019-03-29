@@ -7,7 +7,7 @@ namespace BlackKnightInstallment.Services
 {
     public interface IInstallmentService
     {
-        IEnumerable<int> CalculateInstallment(int TotalAmount, int NoOfInstallments);
+        IEnumerable<decimal> CalculateInstallment(decimal TotalAmount, int NoOfInstallments);
 
     }
 }

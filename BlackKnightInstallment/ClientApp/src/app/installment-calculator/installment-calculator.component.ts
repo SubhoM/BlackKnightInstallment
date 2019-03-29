@@ -28,7 +28,10 @@ export class InstallmentCalculatorComponent implements OnInit {
     //debugger;
 
     this._installmentService.getInstallment(TotalAmount, NoOfInstallments).subscribe(data => {
+      this.arrInstallmentAmount = [];
       this.arrInstallmentAmount = data;
+      TotalAmount = 0;
+      NoOfInstallments = 0;
     }
     );
 

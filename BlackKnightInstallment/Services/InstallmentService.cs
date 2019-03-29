@@ -7,9 +7,9 @@ namespace BlackKnightInstallment.Services
 {
     public class InstallmentService : IInstallmentService
     {
-        public IEnumerable<int> CalculateInstallment(int TotalAmount, int NoOfInstallments)
+        public IEnumerable<decimal> CalculateInstallment(decimal TotalAmount, int NoOfInstallments)
         {
-            List<int> lstInstallment = new List<int>();
+            List<decimal> lstInstallment = new List<decimal>();
 
             if(TotalAmount < 0)
             {
@@ -37,19 +37,25 @@ namespace BlackKnightInstallment.Services
 
             if (NoOfInstallments > 1)
             {
-                var installmentAmt = TotalAmount / NoOfInstallments;
+                var installmentAmt = (TotalAmount / NoOfInstallments);
 
-                decimal dPart = installmentAmt % 1.0m;
+                //var decInstallmentAmt = Convert.ToDecimal(installmentAmt.Substring(0,2));
 
-                int iPart = (int)installmentAmt;
+                string strDecPart = (installmentAmt % 1.0m).ToString();
 
-                int firstInstallment = TotalAmount -  iPart * (NoOfInstallments -1) ;
+                decimal dPart = Convert.ToDecimal(strDecPart.Substring(0, strDecPart.Length >= 4 ? 4 : strDecPart.Length));
+
+                Int64 iPart = (Int64)installmentAmt;
+
+                var decInstallmentAmt = iPart + dPart;
+
+                decimal firstInstallment = TotalAmount - decInstallmentAmt * (NoOfInstallments -1) ;
 
                 lstInstallment.Add(firstInstallment);
 
                 for (int i = 1; i < NoOfInstallments; i++)
                 {
-                    lstInstallment.Add(iPart);
+                    lstInstallment.Add(decInstallmentAmt);
                 }
 
             }

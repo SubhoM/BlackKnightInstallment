@@ -11,15 +11,15 @@ namespace BlackKnightTest
 
     public class InstallmentServiceFake : IInstallmentService
         {
-            private readonly List<int> _lstInstallment;
+            private readonly List<decimal> _lstInstallment;
 
             public InstallmentServiceFake()
             {
-                _lstInstallment = new List<int>(){100,100,100};
+                _lstInstallment = new List<decimal>(){100,100,100};
 
             }
 
-            public IEnumerable<int> CalculateInstallment(int TotalAmount, int NoOfInstallments)
+            public IEnumerable<decimal> CalculateInstallment(decimal TotalAmount, int NoOfInstallments)
             {
                 return _lstInstallment;
             } 

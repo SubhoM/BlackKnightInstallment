@@ -14535,11 +14535,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mukhe\\source\\repos\\BlackKnightInstallment\\BlackKnightTest\\BlackKnightTest.csproj",
+      "projectUniqueName": "C:\\Project\\BlackKnightInstallment-master\\BlackKnightInstallment-master\\BlackKnightTest\\BlackKnightTest.csproj",
       "projectName": "BlackKnightTest",
-      "projectPath": "C:\\Users\\mukhe\\source\\repos\\BlackKnightInstallment\\BlackKnightTest\\BlackKnightTest.csproj",
+      "projectPath": "C:\\Project\\BlackKnightInstallment-master\\BlackKnightInstallment-master\\BlackKnightTest\\BlackKnightTest.csproj",
       "packagesPath": "C:\\Users\\mukhe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mukhe\\source\\repos\\BlackKnightInstallment\\BlackKnightTest\\obj\\",
+      "outputPath": "C:\\Project\\BlackKnightInstallment-master\\BlackKnightInstallment-master\\BlackKnightTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -14558,8 +14558,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\mukhe\\source\\repos\\BlackKnightInstallment\\BlackKnightInstallment\\BlackKnightInstallment.csproj": {
-              "projectPath": "C:\\Users\\mukhe\\source\\repos\\BlackKnightInstallment\\BlackKnightInstallment\\BlackKnightInstallment.csproj"
+            "C:\\Project\\BlackKnightInstallment-master\\BlackKnightInstallment-master\\BlackKnightInstallment\\BlackKnightInstallment.csproj": {
+              "projectPath": "C:\\Project\\BlackKnightInstallment-master\\BlackKnightInstallment-master\\BlackKnightInstallment\\BlackKnightInstallment.csproj"
             }
           }
         }

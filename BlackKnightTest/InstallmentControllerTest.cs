@@ -37,7 +37,7 @@ namespace BlackKnightTest
         [Fact]
         public void Get_WhenCalled_ReturnsInstallments()
         {
-            int TotalAmount = 500;
+            decimal TotalAmount = 500m;
             int NoOfInstallments = 3;
 
 
@@ -45,7 +45,7 @@ namespace BlackKnightTest
             var okResult = _controller.GetInstallmentAmount(TotalAmount, NoOfInstallments) as OkObjectResult;
 
             // Assert
-            var items = Assert.IsType<List<int>>(okResult.Value);
+            var items = Assert.IsType<List<decimal>>(okResult.Value);
             Assert.Equal(3, items.Count);
         }
 

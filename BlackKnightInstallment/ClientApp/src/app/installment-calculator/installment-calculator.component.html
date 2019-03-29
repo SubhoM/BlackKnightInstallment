@@ -14,10 +14,10 @@
 
         <div class="col-sm-12">
           <label for="TotalAmount">Total Amount: </label>
-          <input id="TotalAmount" class="form-control" type="text" ngModel name="TotalAmount" pattern="-?[1-9][0-9]*" required #TotalAmount="ngModel" />
+          <input id="TotalAmount" class="form-control" type="text" ngModel name="TotalAmount" pattern=^-?\d{1,16}?(\.\d{1,2}?)?$ required #TotalAmount="ngModel" />
           <span class="help-block" *ngIf="!TotalAmount.valid && TotalAmount.touched">
             Please enter a valid number!
-          </span>
+          </span>          
         </div>
         <div class="col-sm-12 NoOfInstallments" >
           <label for="NoOfInstallments">Number of Installments: </label>
